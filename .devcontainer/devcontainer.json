@@ -1,0 +1,27 @@
+// see more options at: https://code.visualstudio.com/docs/remote/containers-advanced
+{
+	"name": "mandelbrot",
+	"dockerFile": "Dockerfile",
+
+	// update Dockerfile with your user's UID/GID if not 1000.
+	"runArgs": [ 
+		// set timezone to match our own
+		"-e","TZ=Europe/Amsterdam",
+	],
+
+	// Use 'settings' to set *default* container specific settings.json values on container create. 
+	// You can edit these settings after create using File > Preferences > Settings > Remote.
+	"settings": { 
+		"terminal.integrated.shell.linux": "/bin/bash",
+		"omnisharp.useGlobalMono": "never"
+	},
+
+	"postCreateCommand": "",
+	"remoteUser": "vscode",	
+	"extensions": [
+		"ms-vscode.csharp",
+		"ms-dotnettools.csharp",
+		"ms-vscode.cpptools",
+		"ms-vscode.powershell",
+	]
+}
